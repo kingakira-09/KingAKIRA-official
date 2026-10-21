@@ -94,6 +94,9 @@ h1{
 .sns img{
     height: 40px;
 }
+.sns .x{
+    height:35px;
+}
 .sns .youtube{
     height: 50px;
 }
@@ -147,13 +150,9 @@ h1{
 .sns-fixed{
     position: fixed;
     right: 1%;
-    top: 80%;
+    top: 70%;
     gap: 30px;
     flex-direction: column;
-}
-
-.sns-fixed:hover{
-    color
 }
 
 /*スマホ*/
