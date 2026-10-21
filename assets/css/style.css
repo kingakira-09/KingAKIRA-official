@@ -44,6 +44,8 @@ header img{
     width: calc(100% + 200px);
     height: calc(100% + 20px);
     filter: brightness(1.8) drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px #fff);
+    -webkit-mask-image: radial-gradient(ellipse closest-side, #000 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse closest-side, #000 50%, transparent 100%);
 }
 
 h1{
@@ -91,6 +93,9 @@ h1{
 }
 .sns img{
     height: 40px;
+}
+.sns .x{
+    height:35px;
 }
 .sns .youtube{
     height: 50px;
@@ -145,23 +150,29 @@ h1{
 .sns-fixed{
     position: fixed;
     right: 1%;
-    top: 80%;
+    top: 70%;
     gap: 30px;
     flex-direction: column;
 }
 
-.sns-fixed:hover{
-    color
-}
-
 /*スマホ*/
 @media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
 
     header {
         overflow: hidden;
     }
     h1 {
         font-size: 48px;
+    }
+    #particles {
+        top: -8px;
+        left: -20px;
+        width: calc(100% + 40px);
+        height: calc(100% + 16px);
     }
 
     .section-title {
@@ -183,10 +194,17 @@ h1{
         font-size: 16px;
     }
 
+    .section {
+        margin-top: 60px;
+    }
+
     .jacket {
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 24px;
+    }
+    .jacket figure {
+        margin: 0;
     }
 
     .copyright {
