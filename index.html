@@ -6,27 +6,31 @@
     <title>KingAKIRA Official Website</title>
     <meta name="description" content="KingAKIRA Official Website">
 
+    <!-- フォント（Noto Sans JP） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=block" rel="stylesheet">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/sanitize.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-
 </head>
 <body>
 
+    <!-- ========== ヘッダー（トップの写真＋名前） ========== -->
     <header>
         <img src="./assets/images/9207AB6A-21D0-4B15-806E-995924C84D84.png" alt="Header image">
-        
         <h1>KingAKIRA<span id="particles"></span></h1>
     </header>
 
-    <section class="section">
 
+    <!-- ========== ARTIST（プロフィール） ========== -->
+    <section class="section">
         <h2 class="section-title">ARTIST</h2>
+
         <figure class="about">
 
+            <!-- 写真＋SNS -->
             <div>
                 <img class="about-img" src="./assets/images/AC5B2AFA-8F30-4514-8792-F3F40D444DA2.jpeg" alt="Artist Image">
 
@@ -40,12 +44,16 @@
                     <a href="https://www.youtube.com/@kingakira.09" target="_blank">
                         <img class="youtube" src="./assets/images/yt_icon_white_digital.png" alt="YouTube">
                     </a>
+                    <a class="sns-slack" href="https://n-highschool.slack.com/archives/C09UN8BUEGM" target="_blank">
+                        <img class="slack" src="./assets/images/SLA-Slack-icon-white-RGB.png" alt="Slack">
+                        <span class="sns-note">N/S/R高生のみ</span>
+                    </a>
                 </div>
             </div>
 
+            <!-- 文章 -->
             <figcaption class="about-caption">
                 <h3 class="name">KingAKIRA</h3>
-            
                 <p>2009.05.02</p>
                 <p>From Shonan</p>
                 <p>
@@ -53,55 +61,65 @@
                     自身の低音域の声を活かし、チルな雰囲気を軸にした楽曲を発信予定。
                 </p>
             </figcaption>
+
         </figure>
     </section>
 
-<!--
-   <section class="section">
 
+    <!-- ========== MUSIC（ジャケット）※曲ができたらコメントを外す ========== -->
+    <!--
+    <section class="section">
         <h2 class="section-title">MUSIC</h2>
 
         <div class="jacket">
             <figure>
                 <a href="https://youtu.be/uzsSnLLHx5M" target="_blank">
-                <img src="https://placehold.jp/250x250.png" alt="jacket">
-                </a>
-            <figcaption>あああ</figcaption>
-            </figure>
-            <figure>
-                <a href="https://youtu.be/uzsSnLLHx5M" target="_blank">
-                <img src="https://placehold.jp/250x250.png" alt="jacket">
+                    <img src="https://placehold.jp/250x250.png" alt="jacket">
                 </a>
                 <figcaption>あああ</figcaption>
             </figure>
             <figure>
                 <a href="https://youtu.be/uzsSnLLHx5M" target="_blank">
-                <img src="https://placehold.jp/250x250.png" alt="jacket">
+                    <img src="https://placehold.jp/250x250.png" alt="jacket">
+                </a>
+                <figcaption>あああ</figcaption>
+            </figure>
+            <figure>
+                <a href="https://youtu.be/uzsSnLLHx5M" target="_blank">
+                    <img src="https://placehold.jp/250x250.png" alt="jacket">
                 </a>
                 <figcaption>あああ</figcaption>
             </figure>
         </div>
     </section>
--->
+    -->
 
+
+    <!-- ========== フッター ========== -->
     <footer>
         <p class="copyright">©2026 KingAKIRA</p>
     </footer>
 
-    <div class="sns sns-fixed">
-                    <a href="https://www.instagram.com/kingakira.09/" target="_blank">
-                        <img src="./assets/images/Instagram_Glyph_White.png" alt="Instagram">
-                    </a>
-                    <a href="https://www.x.com/kingakira09" target="_blank">
-                        <img class="x" src="./assets/images/logo-white.png" alt="X">
-                    </a>
-                    <a href="https://www.youtube.com/@kingakira.09" target="_blank">
-                        <img class="youtube" src="./assets/images/yt_icon_white_digital.png" alt="YouTube">
-                    </a>
-                   
 
+    <!-- ========== 画面の右に固定する SNS ========== -->
+    <div class="sns sns-fixed">
+        <a href="https://www.instagram.com/kingakira.09/" target="_blank">
+            <img src="./assets/images/Instagram_Glyph_White.png" alt="Instagram">
+        </a>
+        <a href="https://www.x.com/kingakira09" target="_blank">
+            <img class="x" src="./assets/images/logo-white.png" alt="X">
+        </a>
+        <a href="https://www.youtube.com/@kingakira.09" target="_blank">
+            <img class="youtube" src="./assets/images/yt_icon_white_digital.png" alt="YouTube">
+        </a>
+        <a href="https://n-highschool.slack.com/archives/C09UN8BUEGM" target="_blank">
+            <img class="slack" src="./assets/images/SLA-Slack-icon-white-RGB.png" alt="Slack">
+        </a>
     </div>
 
+
+    <!-- ========== JavaScript ========== -->
+    <!-- キラキラのライブラリ（tsParticles）→ app.js の順で読み込む -->
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3/tsparticles.slim.bundle.min.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>

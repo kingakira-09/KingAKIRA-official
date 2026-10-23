@@ -1,167 +1,226 @@
 @charset "utf-8";
 
-/*base*/
-body{
+/* ==========================================================
+   ベース（ページ全体）
+   ========================================================== */
+body {
     color: #fff;
-    background-color: #00001a;
+    background-color: #00001a;  /* 濃いネイビー */
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 300;
     word-spacing: 0.3em;
-    p{
-        line-height: 2;
+}
+
+p {
+    line-height: 2;
+}
+
+
+/* ==========================================================
+   ヘッダー（トップの写真＋名前）
+   ========================================================== */
+header {
+    position: relative;  /* h1 を重ねるときの基準 */
+    height: 100vh;       /* 画面の高さいっぱい */
+}
+
+header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 比率を保って敷き詰める */
+}
+
+/* 名前 KingAKIRA */
+h1 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* 真ん中を基準点に合わせる */
+    margin: 0;
+    font-size: 130px;
+    font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;               /* 折り返さない */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    animation: slide-in 0.4s ease-out;
+}
+
+/* 名前が左から出てくる動き */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translate(calc(-50vw - 100%), -50%);  /* 画面の左の外 */
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);                /* 元の位置 */
     }
 }
 
-/*section*/
-
-.section{
-    margin-top: 100px;
-}
-
-.section-title{
-    margin-left: 50px;
-    font-size: 50px;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-}
-
-/*header*/
-header{
-    position: relative;
-    height: 100vh;
-}
-
-header img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-#particles{
+/* 名前のまわりのキラキラ（中身は app.js） */
+#particles {
     position: absolute;
     top: -10px;
     left: -100px;
     width: calc(100% + 200px);
     height: calc(100% + 20px);
     filter: brightness(1.8) drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px #fff);
+    /* 端に近づくほど透明にする */
     -webkit-mask-image: radial-gradient(ellipse closest-side, #000 50%, transparent 100%);
     mask-image: radial-gradient(ellipse closest-side, #000 50%, transparent 100%);
 }
 
-h1{
-    white-space: nowrap;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    margin: 0;
-    transform: translate(-50%, -50%);
-    font-size: 130px;
-    font-weight: 900;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    animation: slide-in 0.4s ease-out;
-    line-height: 1;
+
+/* ==========================================================
+   セクション共通
+   ========================================================== */
+.section {
+    margin-top: 100px;
 }
 
- @keyframes slide-in {
-        from{
-            opacity: 0;
-            transform: translate(calc(-50vw - 100%), -50%);
-        }
-        to {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-                }
-    }
+/* ARTIST / MUSIC の見出し */
+.section-title {
+    margin-left: 50px;
+    font-size: 50px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+}
 
-/*about*/
 
-.about{
+/* ==========================================================
+   ARTIST（プロフィール）
+   ========================================================== */
+
+/* 写真＋SNS と 文章 を横に並べる */
+.about {
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
-.about-img{
-    height:400px;
+.about-img {
+    height: 400px;
 }
 
-.sns{
-    display: flex;
-    align-items: center;
-    margin: 10px 0 0 15px;
-    gap: 20px;
-}
-.sns img{
-    height: 40px;
-}
-.sns .x{
-    height:35px;
-}
-.sns .youtube{
-    height: 50px;
-}
-
-.name{
-    margin: 0 0 30px 0;
-    font-weight: 300;
-    font-size: 30px;
-
-}
-
-.about-caption{
+/* 文章 */
+.about-caption {
     margin-left: 100px;
     font-size: 20px;
     max-width: 400px;
-    /*background-color: rgba(3, 23, 67, 0.6);
-    padding: 10px;*/
+    /* 座布団（今は使っていない）
+    background-color: rgba(3, 23, 67, 0.6);
+    padding: 10px;
+    */
 }
 
-/*music*/
-
-/*ジャケット画像*/
-.jacket{
-     display: flex;
-     justify-content: center;
-     gap: 20px;
+/* 名前 */
+.name {
+    margin: 0 0 30px 0;
+    font-size: 30px;
+    font-weight: 300;
 }
 
-/*ジャケットのアニメーション*/
-.jacket img:hover{
-    transform: scale(1.05);
+
+/* ==========================================================
+   SNS アイコン（写真の下・右の固定 どちらにも効く）
+   ========================================================== */
+.sns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 10px 0 0 15px;
 }
+
+.sns a {
+    color: inherit;          /* リンクの色を白のまま */
+    text-decoration: none;   /* 下線を消す */
+}
+
+/* アイコンの大きさ（画像ごとに余白が違うので、見た目でそろえている） */
+.sns img {
+    height: 40px;
+}
+.sns .x {
+    height: 35px;
+}
+.sns .youtube {
+    height: 50px;
+}
+.sns .slack {
+    height: 35px;
+}
+
+/* Slack：アイコンの下に「N/S/R高生のみ」 */
+.sns-slack {
+    position: relative;      /* .sns-note の基準 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sns-note {
+    position: absolute;      /* 浮かせて、アイコンの高さに影響させない */
+    top: 100%;
+    margin-top: 4px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+/* 画面の右に固定する SNS（.sns より後に書く） */
+.sns-fixed {
+    position: fixed;
+    top: 60%;
+    right: 1%;
+    flex-direction: column;  /* 縦に並べる */
+    gap: 30px;
+}
+
+
+/* ==========================================================
+   MUSIC（ジャケット）※今は HTML でコメントアウト中
+   ========================================================== */
+.jacket {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 .jacket img {
     transition: 0.3s;
 }
-
-/*曲名*/
-.jacket figcaption {
-    text-align: center;
-    margin-top: 10px;
+.jacket img:hover {
+    transform: scale(1.05);
 }
 
-/*footer*/
+/* 曲名 */
+.jacket figcaption {
+    margin-top: 10px;
+    text-align: center;
+}
 
-.copyright{
-    text-align: right;
+
+/* ==========================================================
+   フッター
+   ========================================================== */
+.copyright {
     margin-right: 50px;
     font-size: 15px;
+    text-align: right;
 }
 
-.sns-fixed{
-    position: fixed;
-    right: 1%;
-    top: 70%;
-    gap: 30px;
-    flex-direction: column;
-}
 
-/*スマホ*/
+/* ==========================================================
+   スマホ（画面の幅が 768px 以下）
+   ※ 上の指定を上書きするので、必ず一番最後に書く
+   ========================================================== */
 @media (max-width: 768px) {
 
+    /* ベース */
     body {
-        overflow-x: hidden;
+        overflow-x: hidden;  /* 横にはみ出しても、横スクロールさせない */
     }
 
+    /* ヘッダー */
     header {
         overflow: hidden;
     }
@@ -175,11 +234,16 @@ h1{
         height: calc(100% + 16px);
     }
 
+    /* セクション共通 */
+    .section {
+        margin-top: 60px;
+    }
     .section-title {
         margin-left: 20px;
         font-size: 32px;
     }
 
+    /* ARTIST：写真と文章を縦並びに */
     .about {
         flex-direction: column;
         align-items: stretch;
@@ -194,10 +258,7 @@ h1{
         font-size: 16px;
     }
 
-    .section {
-        margin-top: 60px;
-    }
-
+    /* MUSIC：ジャケットを縦並びに */
     .jacket {
         flex-direction: column;
         align-items: center;
@@ -207,6 +268,7 @@ h1{
         margin: 0;
     }
 
+    /* フッター */
     .copyright {
         margin-right: 20px;
     }
