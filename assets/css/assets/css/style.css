@@ -96,6 +96,8 @@ h1{
 }
 .sns .x{
     height:35px;
+    position: relative;
+    left: -3px;  /* 見た目の位置を微調整 */
 }
 .sns .youtube{
     height: 50px;
